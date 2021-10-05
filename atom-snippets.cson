@@ -1,0 +1,147 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+
+'.source.python':
+  'newmodel':
+    'prefix': 'newm'
+    'body': """
+      class $1(models.Model):
+        $2
+    """
+  'mbigint':
+    'prefix': 'mbigint'
+    'body': '$1 = models.BigIntegerField($2)'
+  'mint':
+    'prefix': 'mint'
+    'body': '$1 = models.IntegerField($2)'
+  'mbool':
+    'prefix': 'mbool'
+    'body': '$1 = models.Field(default=$2)'
+  'mchar':
+    'prefix': 'mchar'
+    'body': '$1 = models.CharField(max_length=$2, blank=$3, null=$4)'
+  'mdate':
+    'prefix': 'mdate'
+    'body': '$1 = models.DateField($2)'
+  'mdecimal':
+    'prefix': 'mdecimal'
+    'body': '$1 = models.DecimalField($2)'
+  'mfloat':
+    'prefix': 'mfloat'
+    'body': '$1 = models.FloatField($2)'
+  'mdatetime':
+    'prefix': 'mdatetime'
+    'body': '$1 = models.DateTimeField($2)'
+  'memail':
+    'prefix': 'memail'
+    'body': '$1 = models.EmailField($2)'
+  'mimg':
+    'prefix': 'mimg'
+    'body': '$1 = models.ImageField($2)'
+  'mposint':
+    'prefix': 'mposint'
+    'body': '$1 = models.PositiveIntegerField($2)'
+  'mpossmallint':
+    'prefix': 'mpossmallint'
+    'body': '$1 = models.PositiveSmallIntegerField($2)'
+  'mtext':
+    'prefix': 'mtext'
+    'body': '$1 = models.TextField($2)'
+  'mtime':
+    'prefix': 'mtime'
+    'body': '$1 = models.TimeField($2)'
+  'mfk':
+    'prefix': 'mfk'
+    'body': '$1 = models.ForeignKey($2, on_delete=models.CASCADE)'
+  'm2m':
+    'prefix': 'm2m'
+    'body': '$1 = models.ManyToManyField(models.$2, on_delete=models.CASCADE)'
+  'o2o':
+    'prefix': 'o2o'
+    'body': '$1 = models.OneToOneField(models.$2, on_delete=models.CASCADE)'
+  'view':
+    'prefix': 'view'
+    'body': """
+      def $1(request):
+        $2
+        return render(request, '$3', {
+
+          })
+    """
+  'get_context_data':
+    'prefix': 'defcontext'
+    'body': """
+      def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['$1'] = $2
+        return context
+    """
+
+'.html':
+  'skobki':
+    'prefix': '%%'
+    'body': '{% $1 %}'
+  'for':
+    'prefix': 'for'
+    'body': """
+      {% for $1 in $2 %}
+        $3
+      {% endfor %}
+    """
+  'if':
+    'prefix': 'if'
+    'body': """
+      {% if $1 %}
+        $2
+      {% endif %}
+    """
+  'ife':
+    'prefix': 'ife'
+    'body': """
+      {% if $1 %}
+        $2
+      {% else %}
+        $3
+      {% endif %}
+    """
+  'include':
+    'prefix': 'include'
+    'body': "{% include '$1' %}"
+  'loadstatic':
+    'prefix': 'loadstatic'
+    'body': '{% load staticfiles %}'
+  'static':
+    'prefix': 'static'
+    'body': "{% static '$1' %}"
+  'url':
+    'prefix': 'url'
+    'body': "{% url '$1' %}"
+  'block':
+    'prefix': 'block'
+    'body': """
+      {% block '$1' %}
+        $2
+      {% endblock %}
+    """
+  'csrf':
+    'prefix': 'csrf'
+    'body': '{% csrf_token %}'
